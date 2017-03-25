@@ -1,0 +1,50 @@
+body {
+	background-image: url("../images/image-4.jpg");
+	/*background-size: 100%;*/
+	/*background-repeat: no-repeat;*/
+	/*background-color: black;*/
+}
+
+h1 {
+	font-family: 'Diplomata SC', cursive;
+
+}
+h3 {
+	font-family: 'Diplomata SC', cursive;
+}
+
+#timer-display {
+	font-size: 30px;
+}
+
+#start-button {
+	background-color: black;
+	border: solid 1px #FF6868;
+	color: white;
+	border-radius: 10px;
+}
+.panel {
+	margin: 5% 15%;
+	border: solid 2px #FF6868;
+	background-color: #3F51B5;
+	color: #FF6868;
+	text-align: center;
+}
+
+.answer-button {
+	background-color: black;
+	border: solid 1px #FF6868;
+	color: white;
+	margin: 0px 5px;
+	padding: 5px;
+}
+
+h3 {
+	margin: 20px 0px 20px 0px;
+}
+#done {
+	background-color: black;
+	border: solid 1px #FF6868;
+	color: white;
+	border-radius: 10px;
+}
