@@ -5,21 +5,37 @@ var rightAnswersTally = 0;
 var wrongAnswersTally = 0;
 var unansweredTally = 0;
 var startButton = $("#start-button")
-var questions = [{question: "What is Bob Dylan's real name?",
+var questions = [{question: "<p>What is Bob Dylan's real name?</p>",
 					answers: ["George Costanza", "Richard Starkey", "Robert Zimmerman", "Brian Bosworth"],
 					rightAnswer: "Robert Zimmerman"},
 
-					{question: "What album is 'Like a Rolling Stone' on?",
+					{question: "<p>What album is 'Like a Rolling Stone' on?</p>",
 					answers: ["Blonde on Blonde", "Highway 61 Revisited", "Planet Waves", "Blood on the Tracks"],
 					rightAnswer: "Highway 61 Revisited"},
 
-					 {question: "At what festival was Dylan called a Judas for playing electric?",
+					 {question: "<p>At what festival was Dylan called a Judas for playing electric?</p>",
 					 answers: ["Newport Folk Festival", "Lollapalooza", "Monterray Pop Festival", "Coachella"],
 					 rightAnswer: "Newport Folk Festival"},
 
-					{question: "What group got it's start as Dylan's backing band?",
+					{question: "<p>What group got it's start as Dylan's backing band?</p>",
 					answers: ["Smashmouth", "Dire Straits", "Black Flag", "The Band"],
-					rightAnswer: "The Band" }]
+					rightAnswer: "The Band" },
+					
+					{question: "<p>What state is Dylan originally from?</p>",
+					answers: ["Michigan", "Minnesota", "Texas", "California"],
+					rightAnswer: "Minnesota"},
+
+					{question: "<p>A mid-1980s hip-hop tune, 'Street Rock', featured Bob Dylan; which artist recorded the song?</p>",
+					answers: ["Grandmaster Flash and the Furious Five", "Kurtis Blow", "Run-DMC", "KRS-One"],
+					rightAnswer: "Kurtis Blow"},
+
+					{question: "<p>Dylan once proposed to which iconic soul singer?</p>",
+					answers: ["Aretha Franklin", "Luther Vandross", "Mavis Staples", "Tina Turner"],
+					rightAnswer: "Mavis Staples"},
+
+					{question: "<p>Which Dylan song inspired the name of the radical leftist group, The Weather Underground?</p>",
+					answers: ["Gates of Eden", "Outlaw Blues", "It's alright Ma(I'm only bleeding)", "Subterranean Homesick Blues"],
+					rightAnswer: "Subterranean Homesick Blues"}]
 
 function showQuestions() {
 	for ( var i = 0; i < questions.length; i++) {
@@ -39,24 +55,35 @@ function showQuestions() {
 		}
 	}
 }
-$("#done").click(function() {
+function showResults() {
 	for ( var i = 0; i < questions.length; i++) {
-		var groupName = "question" + i;
-		var selectedValue = $("input[name=" + groupName + "]:checked").val()
-		if (selectedValue === questions[i].rightAnswer) {
+			var groupName = "question" + i;
+			var selectedValue = $("input[name=" + groupName + "]:checked").val()
+			if (selectedValue === questions[i].rightAnswer) {
 			rightAnswersTally = rightAnswersTally + 1;
 			$("#correct").html("Don't Think Twice, You Got these Answers Right!:" + " " + rightAnswersTally);
 			console.log(rightAnswersTally);
-		} else if (selectedValue === undefined) {
+			} else if (selectedValue === undefined) {
 			unansweredTally = unansweredTally + 1;
 			$("#unanswered").html("You Left These Questions Blowin' in the Wind!:" + " " + unansweredTally);
-		} else {
+			} else {
 			wrongAnswersTally = wrongAnswersTally + 1;
 			$("#incorrect").html("Your Stuck in Mobile with the Wrong Answers Again!:" + " " + wrongAnswersTally);
-		}
+			}
 	}
 	$("#results").show();
 	$("#content-area").hide();
+
+}
+
+$("#done").click(function() {
+	showResults();
+	clearInterval(clock);
+	$("#timer-display").hide();
+	$("#done").hide()
+	$("#dylan-pic").show()
+
+
 });
 
 
@@ -66,7 +93,11 @@ function timer() {
 			
 			if (counter === 0) {
 				clearInterval(clock);
-				console.log("over");
+				showResults();
+				$("#timer-display").hide();
+				$("#done").hide();
+				$("#dylan-pic").show()
+
 			}
 			if (counter > 0) {
 				counter--;
@@ -90,6 +121,7 @@ $(document).ready(function() {
 		$("#done").hide();
 		$("#results").hide();
 		$("#timer-display").hide();
+		$("#dylan-pic").hide()
 
 	}
 	openingScreen();
@@ -138,15 +170,5 @@ $(document).ready(function() {
 
 
 
-
-// $("#start-button").click(function() {
-// 	$("#trivia-data").show();
-// 	$("#start-button").hide();
-
-	
-	
-	
-// 	};
-// });
 
 

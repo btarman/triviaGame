@@ -1,12 +1,10 @@
 body {
 	background-image: url("../images/image-4.jpg");
-	/*background-size: 100%;*/
-	/*background-repeat: no-repeat;*/
-	/*background-color: black;*/
 }
 
 h1 {
 	font-family: 'Diplomata SC', cursive;
+	text-align: center;
 
 }
 h3 {
@@ -14,7 +12,9 @@ h3 {
 }
 
 #timer-display {
-	font-size: 30px;
+	font-size: 40px;
+	margin: 15px;
+	color: white;
 }
 
 #start-button {
@@ -22,21 +22,27 @@ h3 {
 	border: solid 1px #FF6868;
 	color: white;
 	border-radius: 10px;
+
 }
 .panel {
 	margin: 5% 15%;
 	border: solid 2px #FF6868;
 	background-color: #3F51B5;
 	color: #FF6868;
-	text-align: center;
+	/*text-align: center;*/
+}
+#start-button {
+	margin-left: 40%;
+}
+#content-area {
+	/*margin-left: ;*/
 }
 
-.answer-button {
-	background-color: black;
-	border: solid 1px #FF6868;
-	color: white;
-	margin: 0px 5px;
-	padding: 5px;
+p {
+	font-size: 20px;
+	margin-top: 10px;
+	font-family: 'Playfair Display', serif;
+
 }
 
 h3 {
@@ -47,4 +53,15 @@ h3 {
 	border: solid 1px #FF6868;
 	color: white;
 	border-radius: 10px;
+	margin-top: 15px;
+}
+
+#results {
+	margin-left: 15%;
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+}
+
+#dylan-pic {
+	margin: 20px 0px 5px 30%;
 }
